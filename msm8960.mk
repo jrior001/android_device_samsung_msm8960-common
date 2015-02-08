@@ -148,6 +148,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
+ifeq ($(filter cm_espressovzw,$(TARGET_PRODUCT)),)
 # NFC
 PRODUCT_PACKAGES += \
     libnfc \
@@ -163,6 +164,11 @@ else
 endif
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+
+# Torch
+PRODUCT_PACKAGES += \
+    Torch
+endif
 
 # OMX
 PRODUCT_PACKAGES += \
